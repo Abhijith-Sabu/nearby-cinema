@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Brand</title>
+    <style>
+        a.logo {
+            height: 12px;
+            width: 100px;
+            color: white;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header img {
+            height: 700px;
+            width: 100;
+        }
+        .nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .hero {
+            /* background: url('your-hero-image.jpg') no-repeat center center; */
+            background-color: #333;
+            background-size: cover;
+            height: 70vh;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3em;
+            color: #000;
+        }
+        .hero p {
+            font-size: 1.5em;
+            color: #333;
+        }
+        .products {
+            display: flex;
+            justify-content: space-around;
+            padding: 40px 20px;
+        }
+        .product {
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            max-width: 300px;
+        }
+        .footer {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+        nav{
+            background-color: #000;
+        }
+        /* .hero { 
+            background-image: url("{{url_for('static', filename='images/model-3.jpg')}}");
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+            } */
+        /* .hero img{
+            height: 70vh;
+            width: 100;
+        } */
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="" class="logo">
+            <svg class="tds-icon tds-icon-logo-wordmark tds-site-logo-icon" viewBox="0 0 342 35" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M0 .1a9.7 9.7 0 0 0 7 7h11l.5.1v27.6h6.8V7.3L26 7h11a9.8 9.8 0 0 0 7-7H0zm238.6 0h-6.8v34.8H263a9.7 9.7 0 0 0 6-6.8h-30.3V0zm-52.3 6.8c3.6-1 6.6-3.8 7.4-6.9l-38.1.1v20.6h31.1v7.2h-24.4a13.6 13.6 0 0 0-8.7 7h39.9v-21h-31.2v-7zm116.2 28h6.7v-14h24.6v14h6.7v-21h-38zM85.3 7h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7m0 13.8h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7m0 14.1h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7M308.5 7h26a9.6 9.6 0 0 0 7-7h-40a9.6 9.6 0 0 0 7 7"></path></svg>
+        </a>
+
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Shop</a>
+        </nav>
+    </header>
+    {% if cafe %}
+        {% for c in cafe %}
+            {% if c.id != 1 %}
+                <section class="hero">
+                    <h1>{{ c.name }}</h1>
+                    <p>Experience the Future of Transportation</p>
+                    <li>{{ c.location }}</li>
+                    <li><a href="{{c.map_url}}">Map URL</a></li>
+                    <li><a href="{{c.img_url}}">Image URL</a></li>
+                    <button>Order Now</button>
+                    <button>Learn More</button>
+                </section>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    <section class="products">
+        <div class="product">
+            <img src="{{ url_for('static', filename='images/model-3.jpg') }}" alt="Model 3">
+
+            <h2>Model 1</h2>
+            <button>Order Now</button>
+        </div>
+        <div class="product">
+            <img src="{{ url_for('static', filename='images/model-3.jpg') }}" alt="Product 2">
+            <h2>Model 2</h2>
+            <button>Order Now</button>
+        </div>
+        <div class="product">
+            <img src="{{ url_for('static', filename='images/model-3.jpg') }}" alt="Product 3">
+            <h2>Model 3</h2>
+            <button>Order Now</button>
+        </div>
+    </section>
+    <footer class="footer">
+        <p>Contact us: info@yourbrand.com | 123-456-7890</p>
+        <p>&copy; 2024 Your Brand. All rights reserved.</p>
+    </footer>
+</body>
+</html>
